@@ -1,487 +1,194 @@
 <!DOCTYPE html>
-<html lang="pt" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="dist/spotlight.bundle.js"></script>
-    <link rel="stylesheet" href="demo/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/img/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/img/android-chrome-512x512.png">
-    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="/img/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#FFE6FE">
-    <meta name="theme-color" content="#FFE6FE">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/Galeriastyle.css">
-    <link rel="stylesheet" href="css/Galeriamedia.css">
-    <link rel="stylesheet" href="css/botao.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/span.css">
-    <title>Sandra Boleira</title>
-  </head>
-  <body>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sandra Boleira</title>
+  <link rel="icon" href="/assets/cake.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <header>
-      <div class="left-side">
-        <a href="#"> <img src="img/logo.png" alt=""> </a>
-      </div>
-      <div class="right-side">
-        <botton class="botao-menu localizacao"> <a href="localizacao.html" target="_blank">Localização</a> </botton>
-        <botton class="botao-menu"> <a href="contato.html" target="_blank">Contato</a> </botton>
-        <botton class="botao-menu"> <a href="cupom.html" target="_blank">Cupom</a> </botton>
-        
-      </div>
-    </header>
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    <div class="container">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/img/android-chrome-512x512.png">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 
-      <div class="left-side">
-        <h1>Não fazemos bolos criamos momentos<br>
-          <span class = "pink"> Sandra Boleira </span>
-        </h1>
-        <p>Com mais de 10 anos de paixão pela confeitaria, cada fatia dos nossos bolos é uma explosão de amor e união, criando a experiência perfeita para os seus momentos mais doces.</p>
-        <a href="cupom.html" target="_blank"><button class="botao pulsante" role="button">Cupom de Desconto</button></a>
+  <style>
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-image {
+      transition: transform 0.3s ease;
+    }
+
+    .card-hover:hover .card-image {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-pink-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-pink-200 shadow-md">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <div class="text-2xl font-bold text-pink-700 transition hover:scale-105">Sandra <span class="text-pink-500">•</span> Boleira</div>
+      <a href="#" id="openModal" class="bg-pink-500 hover:bg-pink-600 transition text-white px-4 py-2 rounded shadow">Fazer Encomenda</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="py-16 bg-gradient-to-r from-pink-100 to-pink-200">
+    <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center px-4">
+      <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
+        <h1 class="text-4xl font-extrabold text-pink-700">Verdadeiros Bolos Caseiros!</h1>
+        <p class="mt-4 text-pink-800">Surpreenda com um sabor inesquecível, aquele gostinho de casa de vó</p>
+        <a href="#" id="openModal2" class="mt-6 inline-block bg-pink-500 text-white px-6 py-3 rounded shadow-lg hover:bg-pink-600 hover:scale-105 transition">Encomendar agora</a>
       </div>
-      <div class="right-side">
-        <img src="img/img1.png" alt="" class="new" style="min-width: 300px;">
+      <div class="md:w-1/2" data-aos="fade-left">
+        <img src="hero.png" alt="Bolo decorado" class="w-full drop-shadow-xl">
       </div>
     </div>
+  </section>
 
-
-    <main class="starbucks_main">
-      <div class="container-fluid p-0 d-none d-md-inline-block carousel-desktop">
-          <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
-              <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0"
-                      class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1"
-                      aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2"
-                      aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner" style="height: 250px;">
-                  <div class="carousel-item active">
-                      <img src="imagens/banner11.jpg" class="d-block img-fluid w-100"
-                          alt="Imagem das promoções e dos produtos oferecidos no starbucks">
-                  </div>
-                  <div class="carousel-item">
-                      <img src="imagens/banner22.jpg" class="d-block img-fluid w-100"
-                          alt="Imagem das promoções e dos produtos oferecidos no starbucks">
-                  </div>
-                  <div class="carousel-item">
-                      <img src="imagens/banner33.jpg" class="d-block img-fluid w-100"
-                          alt="Imagem das promoções e dos produtos oferecidos no starbucks">
-                  </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"
-                  data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Prev</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2"
-                  data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>
-          </div>
+  <!-- Search -->
+  <section class="py-10">
+    <div class="max-w-4xl mx-auto px-4" data-aos="fade-up">
+      <h2 class="text-2xl font-bold text-center text-pink-700 mb-4">Procure</h2>
+      <div class="flex flex-col md:flex-row gap-4">
+        <input id="searchInput" type="text" placeholder="Digite o nome do bolo, doce..." class="flex-1 border border-pink-300 rounded px-4 py-2 focus:outline-pink-400 transition"/>
+        <select id="categorySelect" class="border border-pink-300 rounded py-2 focus:outline-pink-400 transition">
+          <option value="">Selecione a categoria</option>
+          <option value="Bolos">Bolos</option>
+          <option value="Doces">Doces</option>
+        </select>
       </div>
-
-      <div class="container-fluid p-0 d-inline-block d-md-none">
-          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
-              <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                      class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                      aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                      aria-label="Slide 3"></button>
-              </div>
-
-              <div class="carousel-inner">
-                  <div class="carousel-item active">
-                      <img src="imagens/banner1.jpg" class="d-block img-fluid w-100"
-                          alt="Imagem das promoções e dos produtos oferecidos no starbucks">
-                  </div>
-                  <div class="carousel-item">
-                      <img src="imagens/banner2.jpg" class="d-block img-fluid w-100"
-                          alt="Imagem das promoções e dos produtos oferecidos no starbucks">
-                  </div>
-                  <div class="carousel-item">
-                      <img src="imagens/banner3.jpg" class="d-block img-fluid w-100"
-                          alt="Imagem das promoções e dos produtos oferecidos no starbucks">
-                  </div>
-              </div>
-
-          </div>
-      </div>
-
-      <section class="container-fluid primary-color section-1 text-center mt-4 mb-4" style="padding-bottom: 20px;">
-         <p><b>Deixamos a vida da sua família mais doce!</b><br><span style="color: brown; font-size: 30px;"><b>10% de desconto</b></span> em todas as compras feitas pelo nosso site</p>
-
-
-          <a href="#cupom"><button class="btn text-dark rounded-pill border-black py-1">Saiba mais</button></a>
-      </section>
-
-      <section class="container-fluid primary-color section-2 mb-4">
-          <div class="row">
-              <div class="col-12 p-0 col-md-6 d-flex align-items-center">
-                  <img src="imagens/sb-dia-do-fotografo.jpg" alt="Promoção do Dia do Fotógrafo na Starbucks"
-                      class="img-fluid w-100">
-              </div>
-              <div class="col-12 text-center col-md-6" style="margin: 50px 0;">
-                  <h3>Bolos de Aniversário</h3>
-                  <p>Comemore seus momentos especiais com nossos bolos de aniversário: cada fatia é uma celebração de sabor, carinho e tradição que torna cada festa inesquecível.</p>
-                  <a href="#aniversario"><button class="btn text-dark rounded-pill border-black p-md-2 px-4">Veja mais</button></a>
-              </div>
-          </div>
-      </section>
-
-      
-      <section class="container-fluid primary-color section-3 mb-4">
-        <div class="row">
-          <div class="col-12 col-md-6 order-md-2 p-0">
-            <img src="imagens/donate.jpg" alt="Drinks em destaque da Starbucks" class="img-fluid w-100">
-          </div>
-          <div class="col-12 col-md-6 d-flex justify-content-center align-items-center flex-column text-center p-4">
-            <h3>Doces</h3>
-            <p>Descubra o prazer irresistível dos nossos doces artesanais: cada mordida é uma viagem ao paraíso do sabor.</p>
-            <a href="#cupom" class="btn text-dark rounded-pill border-black py-1">Saiba mais</a>
-          </div>
-      </div>
-    </section>
-
-
-    <section class="container-fluid primary-color section-4 mb-4">
-        <div class="row">
-            <div class="col-12 col-md-6 p-0 d-flex align-items-center">
-                <img src="imagens/featured-drinks.jpg" alt="Drinks em destaque da Starbucks"
-                    class="img-fluid w-100">
-            </div>
-            <div
-                class="col-12 col-md-6 d-flex justify-content-center align-items-center flex-column text-center p-4">
-                <h3>Bolos para seu Café</h3>
-                <p>Transforme seu café da tarde em um momento inesquecível com nossos bolos caseiros: um pedaço de puro carinho que derrete na boca e aquece o coração.</p>
-                <a href="#cafe"><button class="btn text-dark rounded-pill border-black py-1 mb-2">Veja mais</button></a>
-            </div>
-        </div>
-    </section>
-    
-    <section class="galery" id="aniversario" style="margin-top: 70px;">
-      <h2><span class = "pink">Bolos de Aniversário</span></h2>
-      <h2><span class = "roxo">⬇️Clica Aqui⬇️</span></h2>
-        <div class="button-container">
-            <button class="kilos botao"  onclick="showInfo('500g')">500g</button>
-            <button class="kilos botao" onclick="showInfo('1kg')">1kg</button>
-            <button class="kilos botao" onclick="showInfo('2kg')">2kg</button>
-            <button class="kilos botao" onclick="showInfo('3kg')">3kg</button>
-            <button class="kilos botao" onclick="showInfo('4kg')">4kg</button>
-            <button class="kilos botao" onclick="showInfo('5kg')">5kg</button>
-        </div>
-        <div class="info" id="info"></div>
-
-        <div class="receita-container">
-        <a href="recheios.html" target="_blank"><button class="recheios botao">recheios</button></a>
-        </div>
-        <br>
-        <br>
-        <h2><span class="roxo">Preços ao clicar nas Imagens</span></h2>
-        <div class="container">
-          
-        
-            <div class="cards">
-                <div class="card">
-                    <div class="card__image">
-                        <img class="card__img" src="imagens/bolo1.jpg" alt="">
-                    </div>
-                    <div class="card__content">
-                      <h3 class="card__title">4 Quilos</h3>
-                      <p class="card__text descricao">Serve 32 a 48 pessoas</p>
-                      <p class="card__text"><span class="riscado">R$320</span> - <span class="desconto">R$288</span></p>
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="card__image">
-                        <img class="card__img" src="imagens/bolo2.jpg" alt="">
-                    </div>
-                    <div class="card__content">
-                      <h3 class="card__title">1 Quilo</h3>
-                      <p class="card__text descricao">Serve 8 a 12 pessoas</p>
-                      <p class="card__text"><span class="riscado">R$80</span> - <span class="desconto">R$72</span></p>
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="card__image">
-                        <img class="card__img" src="imagens/bolo3.jpg" alt="">
-                    </div>
-                    <div class="card__content">
-                      <h3 class="card__title">500g</h3>
-                      <p class="card__text descricao">Serve 4 a 6 pessoas</p>
-                      <p class="card__text"><span class="riscado">R$50</span> - <span class="desconto">R$45</span></p>
-                    </div>
-                </div>
-
-
-                <div class="card">
-                  <div class="card__image">
-                      <img class="card__img" src="imagens/bolo4.jpg" alt="">
-                  </div>
-                  <div class="card__content">
-                    <h3 class="card__title">3 Quilos</h3>
-                    <p class="card__text descricao">Serve 24 a 36 pessoas</p>
-                    <p class="card__text"><span class="riscado">R$240</span> - <span class="desconto">R$216</span></p>
-                  </div>
-                </div>
-
-
-                <div class="card">
-                  <div class="card__image">
-                      <img class="card__img" src="imagens/bolo5.jpg" alt="">
-                  </div>
-                  <div class="card__content">
-                    <h3 class="card__title">500g</h3>
-                    <p class="card__text descricao">Serve 4 a 6 pessoas</p>
-                    <p class="card__text"><span class="riscado">R$50</span> - <span class="desconto">R$45</span></p>
-                  </div>
-               </div>
-
-
-              <div class="card">
-                <div class="card__image">
-                    <img class="card__img" src="imagens/bolo6.jpg" alt="">
-                </div>
-                <div class="card__content">
-                  <h3 class="card__title">1 Quilo</h3>
-                  <p class="card__text descricao">Serve 8 a 12 pessoas</p>
-                  <p class="card__text"><span class="riscado">R$80</span> - <span class="desconto">R$72</span></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card__image">
-                    <img class="card__img" src="imagens/bolo7.jpg" alt="">
-                </div>
-                <div class="card__content">
-                  <h3 class="card__title">2 Quilo</h3>
-                  <p class="card__text descricao">Serve 16 a 24 pessoas</p>
-                  <p class="card__text"><span class="riscado">R$160</span> - <span class="desconto">R$144</span></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card__image">
-                    <img class="card__img" src="imagens/bolo8.jpg" alt="">
-                </div>
-                <div class="card__content">
-                  <h3 class="card__title">3 Quilos</h3>
-                  <p class="card__text descricao">Serve 24 a 36 pessoas</p>
-                  <p class="card__text"><span class="riscado">R$240</span> - <span class="desconto">R$216</span></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="card__image">
-                    <img class="card__img" src="imagens/bolo9.jpg" alt="">
-                </div>
-                <div class="card__content">
-                  <h3 class="card__title">3 Quilos</h3>
-                  <p class="card__text descricao">Serve 24 a 36 pessoas</p>
-                  <p class="card__text"><span class="riscado">R$240</span> - <span class="desconto">R$216</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mais"><a href="https://www.instagram.com/sandra.boleira" target="_blank"><button class="botao">Veja mais</button></a></div>
-    </section>
-
-    <section class="galery" id="doces" style="padding: 40px 0 20px 0; background-color: #FFE6FE;">
-      <h2><span class="pink">Doces</span></h2>
-      <h2><span class="roxo">Preços ao clicar nas Imagens</span></h2>
-      <div class="container">
-        <div class="cards">
-    
-          <div class="card">
-            <div class="card__image">
-              <img class="card__img" src="imagens/doce1.jpg" alt="">
-            </div>
-            <div class="card__content">
-              <h3 class="card__title">Pavê</h3>
-              <p class="card__text descricao">Serve 15 a 20 pessoas</p>
-              <p class="card__text"><span class="riscado">R$80</span> - <span class="desconto">R$72</span></p>
-            </div>
-          </div>
-    
-          <div class="card">
-            <div class="card__image">
-              <img class="card__img" src="imagens/doce2.jpg" alt="">
-            </div>
-            <div class="card__content">
-              <h3 class="card__title">Bombom na Travessa</h3>
-              <p class="card__text descricao">Serve 15 a 20 pessoas</p>
-              <p class="card__text"><span class="riscado">R$80</span> - <span class="desconto">R$72</span></p>
-            </div>
-          </div>
-    
-          <div class="card">
-            <div class="card__image">
-              <img class="card__img" src="imagens/doce3.jpg" alt="">
-            </div>
-            <div class="card__content">
-              <h3 class="card__title">Bombom Gigante</h3>
-              <p class="card__text descricao">Serve 8 a 10 pessoas</p>
-              <p class="card__text"><span class="riscado">R$90</span> - <span class="desconto">R$81</span></p>
-            </div>
-          </div>
-    
-          <div class="card">
-            <div class="card__image">
-              <img class="card__img" src="imagens/doce4.jpg" alt="">
-            </div>
-            <div class="card__content">
-              <h3 class="card__title">Pudim</h3>
-              <p class="card__text descricao">Serve 8 a 10 pessoas</p>
-              <p class="card__text"><span class="riscado">R$45</span> - <span class="desconto">R$40,50</span></p>
-            </div>
-          </div>
-    
-          <div class="card">
-            <div class="card__image">
-              <img class="card__img" src="imagens/doce5.jpg" alt="">
-            </div>
-            <div class="card__content">
-              <h3 class="card__title">Taça Doce</h3>
-              <p class="card__text descricao">Serve 8 a 10 pessoas</p>
-              <p class="card__text"><span class="riscado">R$90</span> - <span class="desconto">R$81</span></p>
-            </div>
-          </div>
-    
-          <div class="card">
-            <div class="card__image">
-              <img class="card__img" src="imagens/doce6.jpg" alt="">
-            </div>
-            <div class="card__content">
-              <h3 class="card__title">Bolo Gelado</h3>
-              <p class="card__text descricao">32 unidades</p>
-              <p class="card__text"><span class="riscado">R$70</span> - <span class="desconto">R$63</span></p>
-            </div>
-          </div>
-    
-        </div>
-      </div>
-    </section>
-    
-    <section class="galery" id="cafe" style="padding: 70px 0 20px 0;">
-      <h2><span class="pink">Café da Tarde</span></h2>
-      <h2><span class="roxo">Preços ao clicar nas Imagens</span></h2>
-      <div class="container">
-        <div class="cards">
-    
-          <div class="card">
-            <div class="card__image">
-              <img class="card__img" src="imagens/cafe1.jpg" alt="">
-            </div>
-            <div class="card__content">
-              <h3 class="card__title">Bolo de Cenoura</h3>
-              <p class="card__text descricao">Serve 10 a 15 pessoas</p>
-              <p class="card__text"><span class="riscado">R$45</span> - <span class="desconto">R$40,50</span></p>
-            </div>
-          </div>
-    
-          <div class="card">
-            <div class="card__image">
-              <img class="card__img" src="imagens/cafe2.jpg" alt="">
-            </div>
-            <div class="card__content">
-              <h3 class="card__title">Bolo de Ninho</h3>
-              <p class="card__text descricao">Serve 10 a 15 pessoas</p>
-              <p class="card__text"><span class="riscado">R$45</span> - <span class="desconto">R$40,50</span></p>
-            </div>
-          </div>
-    
-          <div class="card">
-            <div class="card__image">
-              <img class="card__img" src="imagens/cafe3.jpg" alt="">
-            </div>
-            <div class="card__content">
-              <h3 class="card__title">Bolo de Fubá</h3>
-              <p class="card__text descricao">Serve 10 a 15 pessoas</p>
-              <p class="card__text"><span class="riscado">R$30</span> - <span class="desconto">R$27</span></p>
-            </div>
-          </div>
-    
-        </div>
-      </div>
-    </section>
-
-  
-
-   
-   <section class="container-fluid primary-color section-5" id="cupom">
-    <div class="row">
-        <div class="col-12 col-md-6 p-0 order-md-2 d-flex align-items-center">
-            <img src="imagens/partners.jpg" alt="Drinks em destaque da Starbucks" class="img-fluid w-100">
-        </div>
-        <div
-            class="col-12 col-md-6 d-flex justify-content-center align-items-center flex-column text-center p-4">
-            <h3>Cupom de Desconto</h3>
-            <p style="font-size: 25px;">Faça seu pedido pelo <span style="color: #25D366; font-weight: 700;">Whatsapp</span> usando seu cupom de <span style="color: brown;"><b>10% de desconto</b></span>!!</p>
-            <a href="cupom.html" target="_blank"><button class="btn text-dark rounded-pill border-black py-1 mb-2 mt-2">Receber Cupom</button></a>
-        </div>
     </div>
-    </section>
-    </main>
-   
+  </section>
 
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-section">
-          <h4>Sobre nós</h4>
-          <a href="#">Nossa empresa</a>
-          <a href="#">Nosso vocação</a>
-        </div>
-        <div class="footer-section">
-          <h4>Serviços</h4>
-          <a href="#aniversario">Bolos de Aniversário</a>
-          <a href="#doces">Doces</a>
-          <a href="#cafe">Bolos para Café</a>
-        </div>
-        <div class="footer-section">
-          <h4>Contato</h4>
-          <a href="localizacao.html" target="_blank">Localização</a>
-          <a href="contato.html" target="_blank">Contato</a>
-          <a href="cupom.html " target="_blank">Cupom</a>
-        </div>
-        <div class="footer-section">
-          <h4>Redes Sociais</h4>
-          <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/sandra.boleira" target="_blank"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/5516997677955" target="_blank"><i class="bi bi-whatsapp"></i></a>
-          </div>
-        </div>
+  <!-- Produtos -->
+  <main id="productContainer" class="py-10 bg-pink-50">
+    <div class="max-w-6xl mx-auto grid gap-6 px-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Card 1 -->
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in" data-nome="bolo de cenoura" data-categoria="Bolos">
+        <img src="./cenoura.jpg" alt="Bolo" class="card-image w-full h-48 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Bolo de Cenoura</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 40,00</div>
       </div>
-      <div class="footer-button">
-        &copy; 2024 Sandra Boleira. Todos os direitos reservados.
-      </div>
-    </footer>
 
-    <script src = "js/script.js"></script>
-    <script src = "scripts/precos.js"></script>
-  </body>
+      <!-- Card 2 -->
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in" data-aos-delay="100" data-nome="bolo de laranja" data-categoria="Bolos">
+        <img src="./laranja.webp" alt="Bolo" class="card-image w-full h-48 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Bolo de Laranja</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 40,00</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in" data-aos-delay="200" data-nome="bolo vulcão" data-categoria="Bolos">
+        <img src="./vulcao.png" alt="Bolo" class="card-image w-full h-48 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Bolo Vulcão</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in" data-aos-delay="200" data-nome="cueca virada" data-categoria="Doces">
+        <img src="./cuecavirada.webp" alt="Bolo" class="card-image w-full h-48 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Doces</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Cueca Virada</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 45,00</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-pink-200 mt-10">
+    <div class="max-w-6xl mx-auto text-center py-6 text-pink-800">
+      <div class="text-lg font-bold mb-2">Sandra • Boleira</div>
+      <div class="text-sm">Feito com ❤️ por <a href="https://wa.me/5516997677955" class="underline hover:text-pink-600 transition">Sandra Campos Correia Pereira</a></div>
+    </div>
+  </footer>
+
+  <!-- Modal WhatsApp -->
+  <div id="whatsappModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden transition">
+    <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full text-center animate-fade-in">
+      <h2 class="text-xl font-semibold text-pink-700 mb-4">Deseja ser redirecionado ao WhatsApp da boleira?</h2>
+      <div class="flex justify-center gap-4 mt-6">
+        <button id="confirmRedirect" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg transition">Sim</button>
+        <button id="cancelModal" class="border border-pink-400 text-pink-500 hover:bg-pink-100 px-4 py-2 rounded-lg transition">Não</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // Modal WhatsApp
+    const openModal = document.getElementById("openModal");
+    const openModal2 = document.getElementById("openModal2");
+    const whatsappModal = document.getElementById("whatsappModal");
+    const confirmRedirect = document.getElementById("confirmRedirect");
+    const cancelModal = document.getElementById("cancelModal");
+
+    openModal.addEventListener("click", (e) => {
+      e.preventDefault();
+      whatsappModal.classList.remove("hidden");
+    });
+
+    openModal2.addEventListener("click", (e) => {
+      e.preventDefault();
+      whatsappModal.classList.remove("hidden");
+    });
+
+    cancelModal.addEventListener("click", () => {
+      whatsappModal.classList.add("hidden");
+    });
+
+    confirmRedirect.addEventListener("click", () => {
+      window.location.href = "https://wa.me/5516997677955"; // Substitua pelo número real da boleira
+    });
+
+    // Filtro de produtos
+    const searchInput = document.getElementById("searchInput");
+    const categorySelect = document.getElementById("categorySelect");
+    const productContainer = document.getElementById("productContainer");
+
+    function filterProducts() {
+      const searchValue = searchInput.value.toLowerCase();
+      const selectedCategory = categorySelect.value;
+
+      const cards = productContainer.querySelectorAll("[data-nome]");
+
+      cards.forEach(card => {
+        const nome = card.getAttribute("data-nome").toLowerCase();
+        const categoria = card.getAttribute("data-categoria");
+
+        const matchesSearch = nome.includes(searchValue);
+        const matchesCategory = selectedCategory === "" || categoria === selectedCategory;
+
+        if (matchesSearch && matchesCategory) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener("input", filterProducts);
+    categorySelect.addEventListener("change", filterProducts);
+  </script>
+</body>
 </html>
