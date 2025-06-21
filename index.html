@@ -84,23 +84,132 @@
   <main id="productContainer" class="py-10 bg-pink-50">
     <div class="max-w-6xl mx-auto grid gap-6 px-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 
-      <!-- MODELO DE CARD COM IMAGEM RESPONSIVA -->
-      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition"
-        data-aos="zoom-in" data-nome="cenoura com chocolate bolo promoção" data-categoria="Promoções">
-        <img src="./cenoura.jpg" alt="Bolo" class="card-image w-full aspect-[4/3] object-cover rounded-xl mb-4 shadow-sm" />
+      <!-- Card Promocional -->
+      <div
+        class="relative card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition border-2 border-pink-300"
+        data-aos="zoom-in" data-aos-delay="300" data-nome="cenoura com chocolate bolo promoção"
+        data-categoria="Promoções">
+        <!-- Selo de promoção -->
+        <div
+          class="z-50 absolute top-6 left-6 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
+          Promoção</div>
+        <!-- Ícone de desconto -->
+        <div
+          class="z-50 absolute top-6 right-6 bg-yellow-300 text-yellow-900 text-sm font-semibold px-2 py-1 rounded-full shadow-md flex items-center gap-1">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M9.049 2.927C9.469 1.713 10.531 1.713 10.951 2.927l1.18 3.63a1 1 0 00.95.69h3.813c1.2 0 1.698 1.544.707 2.31l-3.087 2.377a1 1 0 00-.364 1.118l1.18 3.63c.42 1.214-.994 2.221-2.006 1.45L10 15.347l-3.324 2.385c-1.012.77-2.426-.236-2.006-1.45l1.18-3.63a1 1 0 00-.364-1.118L2.4 9.557c-.991-.766-.493-2.31.707-2.31h3.813a1 1 0 00.95-.69l1.18-3.63z" />
+          </svg>
+          -20%
+        </div>
+        <!-- Imagem -->
+        <img src="./cenoura.jpg" alt="Bolo Promocional"
+          class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <!-- Categoria -->
         <div class="text-sm text-pink-400 font-medium">Bolos</div>
-        <h3 class="text-xl font-semibold text-gray-800 mt-1 break-words">Cenoura com Chocolate</h3>
+        <!-- Nome -->
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Cenoura com Chocolate</h3>
+        <!-- Preço -->
         <div class="mt-2 text-lg">
           <span class="line-through text-gray-400 mr-2">R$ 40,00</span>
           <span class="text-pink-600 font-bold">R$ 32,00</span>
         </div>
       </div>
 
-      <!-- Replique o modelo acima para os demais produtos -->
-      <!-- Apenas altere src, data-nome, data-categoria, título e preço conforme necessário -->
-      <!-- DICA: copie o card acima e cole repetidamente, preenchendo com os dados reais -->
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-nome="bolo de fubá fuba" data-categoria="Bolos">
+        <img src="./fuba.jpg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Fuba</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 30,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="bolo leite ninho" data-categoria="Bolos">
+        <img src="./leite-ninho.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Leite Ninho</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 50,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="iogurte limão mousse" data-categoria="Bolos">
+        <img src="./limao.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Iogurte com Musse de Limão</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 40,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="maracuja mousse bolo" data-categoria="Bolos">
+        <img src="./maracuja.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Maracujá com Musse de Maracujá</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 45,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="paçoca doce de leite bolo" data-categoria="Bolos">
+        <img src="./pacoca.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Paçoca com Doce de Leite</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 45,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="dois amores" data-categoria="Bolos">
+        <img src="./dois-amores.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Dois Amores</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="vulcão de brigadeiro" data-categoria="Bolos">
+        <img src="./vulcao-brigadeiro.jpg" alt="Bolo"
+          class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Vulcão de Brigadeiro</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="200" data-nome="vulcão de cenoura" data-categoria="Bolos">
+        <img src="./vulcao.png" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Vulcão de Cenoura</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="churros com doce de leite" data-categoria="Bolos">
+        <img src="./churros.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Churros com Doce de Leite</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="200" data-nome="cueca virada doce" data-categoria="Doces">
+        <img src="./cuecavirada.webp" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Doces</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Cueca Virada</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 22,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="200" data-nome="beijo de mulata" data-categoria="Doces">
+        <img src="./beijo-de-mulata.jpg" alt="Bolo"
+          class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Doces</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Beijo de Mulata</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 20,00</div>
+      </div>
+
+
 
     </div>
+
   </main>
 
   <!-- Footer -->
@@ -128,8 +237,8 @@
         <div class="flex space-x-4 text-pink-700">
           <a href="https://www.instagram.com/sandra.boleira/" target="_blank"
             class="hover:text-pink-600 transition text-2xl"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/5516997677955" target="_blank"
-            class="hover:text-pink-600 transition text-2xl"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://wa.me/5516997677955" target="_blank" class="hover:text-pink-600 transition text-2xl"><i
+              class="fab fa-whatsapp"></i></a>
         </div>
       </div>
     </div>
@@ -208,4 +317,5 @@
   </script>
 
 </body>
+
 </html>
