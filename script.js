@@ -1,6 +1,6 @@
 const produtos = [
     {
-        nome: "Bolo de Fuba",
+        nome: "Bolo de Fubá",
         preco: 29.50,
         categoria: "tradicional",
         descricao: "Clássico bolo de Fuba",
