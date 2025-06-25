@@ -245,7 +245,7 @@ ${lista}
 
 *� Obrigado pela preferência! �*`;
 
-    const url = `https://wa.me/5511912345678?text=${encodeURIComponent(mensagem)}`;
+    const url = `https://wa.me/5517996490503?text=${encodeURIComponent(mensagem)}`;
     window.open(url, "_blank");
 });
 
