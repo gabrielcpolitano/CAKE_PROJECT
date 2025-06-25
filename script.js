@@ -3,7 +3,7 @@ const produtos = [
         nome: "Bolo de Fubá",
         preco: 29.50,
         categoria: "tradicional",
-        descricao: "Clássico bolo de Fuba",
+        descricao: "Clássico bolo de Fubá",
         estrela: 5,
         vendas: 142,
         imagem: "./imgs/fuba.jpg"
