@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sandra Boleira</title>
+  <link rel="icon" href="/assets/cake.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/img/android-chrome-512x512.png">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+  <style>
+
+    html,
+    body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-image {
+      transition: transform 0.3s ease;
+    }
+
+    .card-hover:hover .card-image {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="bg-pink-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-pink-200 shadow-md">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <div class="text-2xl font-bold text-pink-700 transition hover:scale-105">Sandra <span
+          class="text-pink-500">•</span> Boleira</div>
+      <a href="#" id="openModal"
+        class="bg-pink-500 hover:bg-pink-600 transition text-white px-4 py-2 rounded shadow">Fazer Encomenda</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="py-16 bg-gradient-to-r from-pink-100 to-pink-200">
+    <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center px-4">
+      <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
+        <h1 class="text-4xl font-extrabold text-pink-700">Verdadeiros Bolos Caseiros!</h1>
+        <p class="mt-4 text-pink-800">Surpreenda com um sabor inesquecível, aquele gostinho de casa de vó</p>
+        <a href="#" id="openModal2"
+          class="mt-6 inline-block bg-pink-500 text-white px-6 py-3 rounded shadow-lg hover:bg-pink-600 hover:scale-105 transition">Encomendar
+          agora</a>
+      </div>
+      <div class="md:w-1/2" data-aos="fade-left">
+        <img src="hero.png" alt="Bolo decorado" class="w-full drop-shadow-xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <section class="py-10">
+    <div class="max-w-4xl mx-auto px-4" data-aos="fade-up">
+      <h2 class="text-2xl font-bold text-center text-pink-700 mb-4">Procure</h2>
+      <div class="flex flex-col md:flex-row gap-4">
+        <input id="searchInput" type="text" placeholder="Digite o nome do bolo, doce..."
+          class="flex-1 border border-pink-300 rounded px-4 py-2 focus:outline-pink-400 transition" />
+        <select id="categorySelect" class="border border-pink-300 rounded py-2 focus:outline-pink-400 transition">
+          <option value="">Selecione a categoria</option>
+          <option value="Promoções">Promoções</option>
+          <option value="Bolos">Bolos</option>
+          <option value="Doces">Doces</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produtos -->
+  <main id="productContainer" class="py-10 bg-pink-50">
+    <div class="max-w-6xl mx-auto grid gap-6 px-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Card Promocional -->
+      <div
+        class="relative card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition border-2 border-pink-300"
+        data-aos="zoom-in" data-aos-delay="300" data-nome="cenoura com chocolate bolo promoção"
+        data-categoria="Promoções">
+        <!-- Selo de promoção -->
+        <div
+          class="z-50 absolute top-6 left-6 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
+          Promoção</div>
+        <!-- Ícone de desconto -->
+        <div
+          class="z-50 absolute top-6 right-6 bg-yellow-300 text-yellow-900 text-sm font-semibold px-2 py-1 rounded-full shadow-md flex items-center gap-1">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M9.049 2.927C9.469 1.713 10.531 1.713 10.951 2.927l1.18 3.63a1 1 0 00.95.69h3.813c1.2 0 1.698 1.544.707 2.31l-3.087 2.377a1 1 0 00-.364 1.118l1.18 3.63c.42 1.214-.994 2.221-2.006 1.45L10 15.347l-3.324 2.385c-1.012.77-2.426-.236-2.006-1.45l1.18-3.63a1 1 0 00-.364-1.118L2.4 9.557c-.991-.766-.493-2.31.707-2.31h3.813a1 1 0 00.95-.69l1.18-3.63z" />
+          </svg>
+          -20%
+        </div>
+        <!-- Imagem -->
+        <img src="./cenoura.jpg" alt="Bolo Promocional"
+          class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <!-- Categoria -->
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <!-- Nome -->
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Cenoura com Chocolate</h3>
+        <!-- Preço -->
+        <div class="mt-2 text-lg">
+          <span class="line-through text-gray-400 mr-2">R$ 40,00</span>
+          <span class="text-pink-600 font-bold">R$ 32,00</span>
+        </div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-nome="bolo de fubá fuba" data-categoria="Bolos">
+        <img src="./fuba.jpg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Fuba</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 30,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="bolo leite ninho" data-categoria="Bolos">
+        <img src="./leite-ninho.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Leite Ninho</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 50,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="iogurte limão mousse" data-categoria="Bolos">
+        <img src="./limao.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Iogurte com Musse de Limão</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 40,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="maracuja mousse bolo" data-categoria="Bolos">
+        <img src="./maracuja.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Maracujá com Musse de Maracujá</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 45,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="paçoca doce de leite bolo" data-categoria="Bolos">
+        <img src="./pacoca.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Paçoca com Doce de Leite</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="dois amores" data-categoria="Bolos">
+        <img src="./dois-amores.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Dois Amores</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="vulcão de brigadeiro" data-categoria="Bolos">
+        <img src="./vulcao-brigadeiro.jpg" alt="Bolo"
+          class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Vulcão de Brigadeiro</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="200" data-nome="vulcão de cenoura" data-categoria="Bolos">
+        <img src="./vulcao.png" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Vulcão de Cenoura</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="100" data-nome="churros com doce de leite" data-categoria="Bolos">
+        <img src="./churros.jpeg" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Bolos</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Churros com Doce de Leite</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 55,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="200" data-nome="cueca virada doce" data-categoria="Doces">
+        <img src="./cuecavirada.webp" alt="Bolo" class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Doces</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Cueca Virada</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 22,00</div>
+      </div>
+
+      <div class="card-hover bg-white rounded-3xl shadow-md overflow-hidden p-4 group transition" data-aos="zoom-in"
+        data-aos-delay="200" data-nome="beijo de mulata" data-categoria="Doces">
+        <img src="./beijo-de-mulata.jpg" alt="Bolo"
+          class="card-image w-full h-64 object-fill rounded-xl mb-4 shadow-sm" />
+        <div class="text-sm text-pink-400 font-medium">Doces</div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-1">Beijo de Mulata</h3>
+        <div class="text-pink-600 font-bold text-lg mt-2">R$ 20,00</div>
+      </div>
+
+
+
+    </div>
+
+  </main>
+
+
+  <!-- Footer Moderno -->
+  <footer class="bg-pink-200 mt-10 pt-12 pb-8 text-pink-800">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Sobre -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">Sobre a Sandra</h3>
+        <p class="text-sm leading-relaxed">
+          Sandra Campos é apaixonada por confeitaria artesanal. Cada bolo é feito com carinho e ingredientes
+          selecionados, trazendo o verdadeiro sabor caseiro.
+        </p>
+      </div>
+
+      <!-- Contato -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">Contato</h3>
+        <ul class="text-sm space-y-2">
+          <li><strong>WhatsApp:</strong> <a href="https://wa.me/5516997677955"
+              class="hover:underline hover:text-pink-600 transition">(16) 99767-7955</a></li>
+          <li><strong>Email:</strong> <a href="mailto:sandrapolitano182307@gmail.com"
+              class="hover:underline hover:text-pink-600 transition">sandrapolitano182307@gmail.com</a></li>
+          <li><strong>Localização:</strong> Agulha - SP</li>
+        </ul>
+      </div>
+
+      <!-- Redes Sociais -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">Redes Sociais</h3>
+        <div class="flex space-x-4 text-pink-700">
+          <a href="https://www.instagram.com/sandra.boleira/" target="_blank"
+            class="hover:text-pink-600 transition text-2xl">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/5516997677955" target="_blank" class="hover:text-pink-600 transition text-2xl">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="text-center mt-8 text-sm text-pink-700 border-t border-pink-300 pt-4">
+      © 2025 Sandra Campos • Todos os direitos reservados.
+    </div>
+  </footer>
+
+
+  <!-- Modal WhatsApp -->
+  <div id="whatsappModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden transition">
+    <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full text-center animate-fade-in">
+      <h2 class="text-xl font-semibold text-pink-700 mb-4">Deseja ser redirecionado ao WhatsApp da boleira?</h2>
+      <div class="flex justify-center gap-4 mt-6">
+        <button id="confirmRedirect"
+          class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg transition">Sim</button>
+        <button id="cancelModal"
+          class="border border-pink-400 text-pink-500 hover:bg-pink-100 px-4 py-2 rounded-lg transition">Não</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // Modal WhatsApp
+    const openModal = document.getElementById("openModal");
+    const openModal2 = document.getElementById("openModal2");
+    const whatsappModal = document.getElementById("whatsappModal");
+    const confirmRedirect = document.getElementById("confirmRedirect");
+    const cancelModal = document.getElementById("cancelModal");
+
+    openModal.addEventListener("click", (e) => {
+      e.preventDefault();
+      whatsappModal.classList.remove("hidden");
+    });
+
+    openModal2.addEventListener("click", (e) => {
+      e.preventDefault();
+      whatsappModal.classList.remove("hidden");
+    });
+
+    cancelModal.addEventListener("click", () => {
+      whatsappModal.classList.add("hidden");
+    });
+
+    confirmRedirect.addEventListener("click", () => {
+      window.location.href = "https://wa.me/5516997677955";
+    });
+
+    // === FILTRO COM NORMALIZAÇÃO ===
+
+    const searchInput = document.getElementById("searchInput");
+    const categorySelect = document.getElementById("categorySelect");
+    const productContainer = document.getElementById("productContainer");
+
+    // Função para remover acentos e normalizar
+    function normalizeText(text) {
+      return text
+        .normalize("NFD")                      // separa os acentos
+        .replace(/[\u0300-\u036f]/g, "")      // remove os acentos
+        .toLowerCase()
+        .trim();
+    }
+
+    function filterProducts() {
+      const searchValue = normalizeText(searchInput.value);
+      const selectedCategory = categorySelect.value;
+
+      const cards = productContainer.querySelectorAll("[data-nome]");
+
+      cards.forEach(card => {
+        const nome = normalizeText(card.getAttribute("data-nome") || "");
+        const categoria = card.getAttribute("data-categoria");
+
+        const matchesSearch = nome.includes(searchValue);
+        const matchesCategory = selectedCategory === "" || categoria === selectedCategory;
+
+        if (matchesSearch && matchesCategory) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener("input", filterProducts);
+    categorySelect.addEventListener("change", filterProducts);
+  </script>
+</body>
+
+</html>
