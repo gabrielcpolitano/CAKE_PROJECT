@@ -8,18 +8,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
-      <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/imgs/favicons/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/imgs/favicons/android-chrome-512x512.png">
-  <link rel="icon" href="/imgs/favicons/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="/imgs/favicons/favicon.ico" type="image/x-icon">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/imgs/favicons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/imgs/favicons/android-chrome-512x512.png">
+    <link rel="icon" href="/imgs/favicons/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/imgs/favicons/favicon.ico" type="image/x-icon">
 </head>
 
 <body class="bg-white text-gray-700 font-sans">
 
-    
+
 
     <!-- Hero -->
     <section class="animated-gradient text-white text-center py-12 px-4 md:px-10">
@@ -29,7 +29,8 @@
             </h2>
             <p class="text-lg sm:text-xl leading-relaxed mb-8 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-4">
                 Nossos bolos são feitos com os
-                <mark class="bg-yellow-300 text-gray-900 px-1 rounded">melhores ingredientes do mercado</mark> — Ingredientes nobres e selecionados. Isso garante que nossos bolos tenham qualidade superior e
+                <mark class="bg-yellow-300 text-gray-900 px-1 rounded">melhores ingredientes do mercado</mark> —
+                Ingredientes nobres e selecionados. Isso garante que nossos bolos tenham qualidade superior e
                 sejam
                 oferecidos a um preço justo.
             </p>
@@ -88,9 +89,12 @@
             <div class="md:mx-20">
                 <h4 class="text-xl font-bold mb-2">Sigam-nos</h4>
                 <div class="flex gap-4 text-2xl mt-2">
-                    <a href="https://www.instagram.com/sandra.boleira/" target="_blank"><i class="fab fa-instagram hover:text-pink-300"></i></a>
-                    <a href="https://www.facebook.com/sandra.camposcorreiapoltano/" target="_blank"><i class="fab fa-facebook hover:text-blue-300"></i></a>
-                    <a href="https://wa.me/5516997675678" target="_blank"><i class="fab fa-whatsapp hover:text-green-300"></i></a>
+                    <a href="https://www.instagram.com/sandra.boleira/" target="_blank"><i
+                            class="fab fa-instagram hover:text-pink-300"></i></a>
+                    <a href="https://www.facebook.com/sandra.camposcorreiapoltano/" target="_blank"><i
+                            class="fab fa-facebook hover:text-blue-300"></i></a>
+                    <a href="https://wa.me/5516997675678" target="_blank"><i
+                            class="fab fa-whatsapp hover:text-green-300"></i></a>
                 </div>
             </div>
         </div>
@@ -110,17 +114,28 @@
                 <input type="text" id="nome" required placeholder="Nome Completo" class="w-full border rounded p-2">
                 <input type="tel" id="telefone" required placeholder="Telefone (WhatsApp)"
                     class="w-full border rounded p-2">
-                <textarea id="endereco" required placeholder="Endereço de Entrega" rows="3"
+                <textarea id="endereco" required placeholder="Cidade e Endereço de Entrega" rows="3"
                     class="w-full border rounded p-2"></textarea>
                 <button type="submit"
                     class="bg-green-500 hover:bg-green-600 text-white w-full py-2 rounded font-semibold">
-                    Enviar Pedido via WhatsApp
+                    Enviar Pedido
                 </button>
             </form>
         </div>
     </div>
 
+    <!-- Mensagem de Sucesso -->
+    <div id="successMessage" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm w-full animate-fade-in">
+            <h2 class="text-2xl font-bold text-green-600 mb-2">Pedido Enviado!</h2>
+            <p class="text-gray-700 mb-4">Recebemos seu pedido com sucesso. Entraremos em contato em breve.</p>
+            <button onclick="closeSuccessMessage()"
+                class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-semibold">OK</button>
+        </div>
+    </div>
 
+
+    <script src="produtos.js"></script>
     <script src="script.js"></script>
 
 </body>

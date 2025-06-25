@@ -1,97 +1,3 @@
-const produtos = [
-    {
-        nome: "Bolo de Fubá",
-        preco: 29.50,
-        categoria: "tradicional",
-        descricao: "Clássico bolo de Fubá",
-        estrela: 5,
-        vendas: 142,
-        imagem: "./imgs/fuba.jpg"
-    },
-    {
-        nome: "Bolo de Cenoura",
-        preco: 42.90,
-        categoria: "tradicional",
-        descricao: "Clássico bolo de cenoura com cobertura de chocolate",
-        estrela: 4,
-        vendas: 118,
-        imagem: "imgs/cenoura.jpg"
-    },
-    {
-        nome: "Bolo de Leite Ninho",
-        preco: 49.50,
-        categoria: "tradicional",
-        descricao: "Clássico bolo de leite ninho",
-        estrela: 5,
-        vendas: 107,
-        imagem: "imgs/leite.png"
-    },
-    {
-        nome: "Bolo de Iogurte",
-        preco: 42.50,
-        categoria: "tradicional",
-        descricao: "Bolo de Iogurte com mousse de limão",
-        estrela: 4,
-        vendas: 54,
-        imagem: "imgs/limao.png"
-    },
-    {
-        nome: "Bolo de Muracujá",
-        preco: 42.90,
-        categoria: "gourmet",
-        descricao: "Delicioso bolo de maracujá com cobertura mousse de maracujá ",
-        estrela: 5,
-        vendas: 52,
-        imagem: "imgs/maracuja.jpg"
-    },
-    {
-        nome: "Bolo de Churros",
-        preco: 49.50,
-        categoria: "tradicional",
-        descricao: "Bolo de churros com cobertura de doce de leite",
-        estrela: 5,
-        vendas: 67,
-        imagem: "imgs/churros.jpg"
-    },
-    {
-        nome: "Bolo de Paçoca",
-        preco: 49.50,
-        categoria: "tradicional",
-        descricao: "Bolo de paçoca com cobertura de doce de leite",
-        estrela: 4,
-        vendas: 22,
-        imagem: "imgs/pacoca.jpeg"
-    },
-    {
-        nome: "Bolo Vulcão de Cenoura",
-        preco: 49.90,
-        categoria: "tradicional",
-        descricao: "Classico bolo de cenoura com muito chocolate",
-        estrela: 5,
-        vendas: 50,
-        imagem: "imgs/vulcao.png"
-    },
-    {
-        nome: "Cueca Virada",
-        preco: 19.90,
-        categoria: "doces",
-        descricao: "Deliciosa cueca virada (25 unidades)",
-        estrela: 5,
-        vendas: 50,
-        imagem: "imgs/cuecavirada.webp"
-    },
-    {
-        nome: "Beijo de Mulata",
-        preco: 22.50,
-        categoria: "doces",
-        descricao: "Deliciosa beijo de mulata (25 unidades)",
-        estrela: 5,
-        vendas: 50,
-        imagem: "imgs/beijo-de-mulata.jpg"
-    }
-
-];
-
 let currentPage = 1;
 const itemsPerPage = 8;
 
@@ -204,7 +110,6 @@ function renderCartItems() {
         </div>
     `).join('');
 
-    // Adiciona o aviso de entrega
     container.insertAdjacentHTML("beforeend", `
         <div class="mt-4 bg-yellow-100 text-yellow-800 text-sm p-3 rounded-lg border border-yellow-300">
             <i class="fas fa-truck mr-1"></i>
@@ -213,7 +118,7 @@ function renderCartItems() {
     `);
 }
 
-
+// ENVIO PARA FORMSPREE COM VALIDAÇÃO DE TELEFONE
 document.getElementById("checkoutForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -225,28 +130,69 @@ document.getElementById("checkoutForm").addEventListener("submit", function (e) 
     const nome = document.getElementById("nome").value.trim();
     const telefone = document.getElementById("telefone").value.trim();
     const endereco = document.getElementById("endereco").value.trim();
-    const pedidoId = Math.random().toString(36).substring(2, 10).toUpperCase(); // Gera ID tipo 96ZATEMMT
+
+    const telefoneValido = /^(\(?\d{2}\)?[\s-]?)?\d{4,5}[\s-]?\d{4}$/.test(telefone);
+    if (!telefoneValido) {
+        alert("Por favor, insira um número de telefone válido. Ex: (16) 99999-9999");
+        return;
+    }
 
     const total = cart.reduce((acc, item) => acc + item.preco, 0).toFixed(2);
     const lista = cart.map(item => `• ${item.nome} - R$ ${item.preco.toFixed(2)}`).join(`\n`);
 
     const mensagem =
-        `*Sandra Boleira*
+        `Novo Pedido - Doce Encanto\n\n` +
+        `🧁 Itens do Pedido:\n${lista}\n\n` +
+        `💰 Total: R$ ${total}`;
 
-*� Código do Pedido:* ${pedidoId}
-*� Cliente:* ${nome}
-*� Telefone:* ${telefone}
-*� Endereço:* ${endereco}
+    fetch("https://formspree.io/f/xldnopqr", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nome,
+            telefone,
+            endereco,
+            mensagem
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            cart.length = 0;
+            renderCartItems();
+            document.getElementById("cartCount").innerText = "0";
+            document.getElementById("checkoutForm").reset();
+            toggleCartModal();
+            document.getElementById("successMessage").classList.remove("hidden");
+        } else {
+            alert("Erro ao enviar pedido. Tente novamente.");
+        }
+    })
+    .catch(() => {
+        alert("Erro de conexão ao enviar o pedido.");
+    });
+});
 
-*� Itens do Pedido:*
-${lista}
+function closeSuccessMessage() {
+    document.getElementById("successMessage").classList.add("hidden");
+}
 
-*� Total: R$ ${total}*
+// MÁSCARA DE TELEFONE AO DIGITAR
+const telefoneInput = document.getElementById("telefone");
 
-*� Obrigado pela preferência! �*`;
+telefoneInput.addEventListener("input", function (e) {
+    let input = e.target.value.replace(/\D/g, "");
 
-    const url = `https://wa.me/5517996490503?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, "_blank");
+    if (input.length > 11) input = input.slice(0, 11);
+
+    let formatted = "";
+    if (input.length > 0) formatted += "(";
+    if (input.length >= 1) formatted += input.substring(0, 2);
+    if (input.length >= 3) formatted += ") " + input.substring(2, 7);
+    if (input.length >= 8) formatted += "-" + input.substring(7);
+
+    e.target.value = formatted;
 });
 
 renderProdutos();
