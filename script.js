@@ -140,8 +140,7 @@ document.getElementById("checkoutForm").addEventListener("submit", function (e) 
     const total = cart.reduce((acc, item) => acc + item.preco, 0).toFixed(2);
     const lista = cart.map(item => `• ${item.nome} - R$ ${item.preco.toFixed(2)}`).join(`\n`);
 
-    const mensagem =
-        `Novo Pedido - Doce Encanto\n\n` +
+    const pedido =
         `🧁 Itens do Pedido:\n${lista}\n\n` +
         `💰 Total: R$ ${total}`;
 
@@ -154,7 +153,7 @@ document.getElementById("checkoutForm").addEventListener("submit", function (e) 
             nome,
             telefone,
             endereco,
-            mensagem
+            pedido
         })
     })
     .then(response => {
