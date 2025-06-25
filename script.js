@@ -39,7 +39,7 @@ const produtos = [
         nome: "Bolo de Muracujá",
         preco: 42.90,
         categoria: "gourmet",
-        descricao: "Delicioso bolo de maracujá cobertura mousse de maracujá ",
+        descricao: "Delicioso bolo de maracujá com cobertura mousse de maracujá ",
         estrela: 5,
         vendas: 52,
         imagem: "imgs/maracuja.jpg"
@@ -48,7 +48,7 @@ const produtos = [
         nome: "Bolo de Churros",
         preco: 49.50,
         categoria: "tradicional",
-        descricao: "Bolo de churros cobertura de doce de leite",
+        descricao: "Bolo de churros com cobertura de doce de leite",
         estrela: 5,
         vendas: 67,
         imagem: "imgs/churros.jpg"
@@ -57,7 +57,7 @@ const produtos = [
         nome: "Bolo de Paçoca",
         preco: 49.50,
         categoria: "tradicional",
-        descricao: "Bolo de paçoca cobertura de doce de leite",
+        descricao: "Bolo de paçoca com cobertura de doce de leite",
         estrela: 4,
         vendas: 22,
         imagem: "imgs/pacoca.jpeg"
