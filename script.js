@@ -21,7 +21,7 @@ const produtos = [
         nome: "Bolo de Leite Ninho",
         preco: 49.50,
         categoria: "tradicional",
-        descricao: "Clássico bolo de Leite Ninho",
+        descricao: "Clássico bolo de leite ninho",
         estrela: 5,
         vendas: 107,
         imagem: "imgs/leite.png"
@@ -30,7 +30,7 @@ const produtos = [
         nome: "Bolo de Iogurte",
         preco: 42.50,
         categoria: "tradicional",
-        descricao: "Bolo de Iogurte com Mousse de Limão",
+        descricao: "Bolo de Iogurte com mousse de limão",
         estrela: 4,
         vendas: 54,
         imagem: "imgs/limao.png"
@@ -39,7 +39,7 @@ const produtos = [
         nome: "Bolo de Muracujá",
         preco: 42.90,
         categoria: "gourmet",
-        descricao: "Delicioso bolo de maracujá cobertura musse de maracujá ",
+        descricao: "Delicioso bolo de maracujá cobertura mousse de maracujá ",
         estrela: 5,
         vendas: 52,
         imagem: "imgs/maracuja.jpg"
