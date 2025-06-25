@@ -30,7 +30,7 @@ const produtos = [
         nome: "Bolo de Iogurte",
         preco: 42.50,
         categoria: "tradicional",
-        descricao: "Bolo de Iogurte com Musse de Limão",
+        descricao: "Bolo de Iogurte com Mousse de Limão",
         estrela: 4,
         vendas: 54,
         imagem: "imgs/limao.png"
