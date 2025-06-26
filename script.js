@@ -28,7 +28,7 @@ function renderProdutos(filtro = "todos") {
                     </div>
                     <p class="text-purple-600 text-xl font-bold">R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
                 </div>
-                <button onclick="addToCart(${index})"
+                <button onclick='addToCart(${JSON.stringify(produto)})'
                     class="mt-4 bg-purple-600 text-white w-full py-2 rounded-full font-medium hover:bg-purple-700 transition">
                     <i class="fas fa-plus mr-1"></i> Adicionar ao Carrinho
                 </button>
@@ -60,8 +60,7 @@ function goToPage(page, filtro) {
     renderProdutos(filtro);
 }
 
-function addToCart(index) {
-    const produto = produtos[index];
+function addToCart(produto) {
     cart.push(produto);
     document.getElementById("cartCount").innerText = cart.length;
     document.getElementById("cartCount").classList.add("animate-bounce");
@@ -78,6 +77,7 @@ function addToCart(index) {
         msg.classList.add("opacity-0");
     }, 2000);
 }
+
 
 function removeFromCart(index) {
     cart.splice(index, 1);
