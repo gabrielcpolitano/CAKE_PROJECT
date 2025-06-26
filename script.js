@@ -110,10 +110,15 @@ function renderCartItems() {
         </div>
     `).join('');
 
+    // Adiciona mensagem de entrega + frete gratuito
     container.insertAdjacentHTML("beforeend", `
         <div class="mt-4 bg-yellow-100 text-yellow-800 text-sm p-3 rounded-lg border border-yellow-300">
             <i class="fas fa-truck mr-1"></i>
             Entregas em <strong>Araraquara</strong> são realizadas somente aos <strong>sábados e domingos</strong>.
+        </div>
+        <div class="mt-2 bg-green-100 text-green-800 text-sm p-3 rounded-lg border border-green-300">
+            <i class="fas fa-check-circle mr-1"></i>
+            <strong>Frete gratuito</strong> para todos os pedidos!
         </div>
     `);
 }
