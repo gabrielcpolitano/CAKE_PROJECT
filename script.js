@@ -92,25 +92,25 @@ function toggleCartModal() {
 
 function renderCartItems() {
     const container = document.getElementById("cartItems");
+    container.innerHTML = "";
 
     if (cart.length === 0) {
-        container.innerHTML = "<p class='text-center text-gray-500'>Seu carrinho está vazio.</p>";
-        return;
+        container.innerHTML += "<p class='text-center text-gray-500 mb-4'>Seu carrinho está vazio.</p>";
+    } else {
+        container.innerHTML += cart.map((item, index) => `
+            <div class="flex justify-between items-center border-b py-1">
+                <div>
+                    <span>${item.nome}</span>
+                    <span class="font-bold text-purple-600 ml-2">R$ ${item.preco.toFixed(2)}</span>
+                </div>
+                <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        `).join('');
     }
 
-    container.innerHTML = cart.map((item, index) => `
-        <div class="flex justify-between items-center border-b py-1">
-            <div>
-                <span>${item.nome}</span>
-                <span class="font-bold text-purple-600 ml-2">R$ ${item.preco.toFixed(2)}</span>
-            </div>
-            <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700">
-                <i class="fas fa-trash-alt"></i>
-            </button>
-        </div>
-    `).join('');
-
-    // Adiciona mensagem de entrega + frete gratuito
+    // Adiciona sempre as mensagens de entrega e frete
     container.insertAdjacentHTML("beforeend", `
         <div class="mt-4 bg-yellow-100 text-yellow-800 text-sm p-3 rounded-lg border border-yellow-300">
             <i class="fas fa-truck mr-1"></i>

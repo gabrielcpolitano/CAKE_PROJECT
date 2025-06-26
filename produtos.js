@@ -66,7 +66,7 @@ const produtos = [
         nome: "Bolo Vulcão de Cenoura",
         preco: 49.90,
         categoria: "tradicional",
-        descricao: "Classico bolo de cenoura com muito chocolate",
+        descricao: "Clássico bolo de cenoura com muito chocolate",
         estrela: 5,
         vendas: 50,
         imagem: "imgs/vulcao.png"
