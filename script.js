@@ -118,7 +118,7 @@ function renderCartItems() {
         </div>
         <div class="mt-2 bg-green-100 text-green-800 text-sm p-3 rounded-lg border border-green-300">
             <i class="fas fa-check-circle mr-1"></i>
-            <strong>Frete gratuito</strong> para todos os pedidos!
+            <strong>Entrega grátis</strong> para todos os pedidos!
         </div>
     `);
 }
