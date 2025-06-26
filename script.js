@@ -26,7 +26,7 @@ function renderProdutos(filtro = "todos") {
                         ${'★'.repeat(produto.estrela)}${'☆'.repeat(5 - produto.estrela)}
                         <span class="text-gray-500 text-xs ml-2">(${produto.vendas})</span>
                     </div>
-                    <p class="text-purple-600 text-xl font-bold">R$ ${produto.preco.toFixed(2)}</p>
+                    <p class="text-purple-600 text-xl font-bold">R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
                 </div>
                 <button onclick="addToCart(${index})"
                     class="mt-4 bg-purple-600 text-white w-full py-2 rounded-full font-medium hover:bg-purple-700 transition">
@@ -69,18 +69,15 @@ function addToCart(index) {
 
     // Mensagem temporária com fade
     const msg = document.getElementById("addToCartMessage");
-    msg.textContent = `${produto.nome} adicionado ao carrinho!`; // mensagem com nome do produto
-    msg.classList.remove("opacity-0"); // mostra com opacidade
-    msg.classList.add("opacity-100");  // fade-in
+    msg.textContent = `${produto.nome} adicionado ao carrinho!`;
+    msg.classList.remove("opacity-0");
+    msg.classList.add("opacity-100");
 
-    // Aguarda 2 segundos, depois inicia o fade-out
     setTimeout(() => {
-        msg.classList.remove("opacity-100"); // inicia o fade-out
+        msg.classList.remove("opacity-100");
         msg.classList.add("opacity-0");
-    }, 2000); // tempo visível
+    }, 2000);
 }
-
-
 
 function removeFromCart(index) {
     cart.splice(index, 1);
@@ -115,7 +112,7 @@ function renderCartItems() {
             <div class="flex justify-between items-center border-b py-1">
                 <div>
                     <span>${item.nome}</span>
-                    <span class="font-bold text-purple-600 ml-2">R$ ${item.preco.toFixed(2)}</span>
+                    <span class="font-bold text-purple-600 ml-2">R$ ${item.preco.toFixed(2).replace('.', ',')}</span>
                 </div>
                 <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700">
                     <i class="fas fa-trash-alt"></i>
@@ -124,15 +121,11 @@ function renderCartItems() {
         `).join('');
     }
 
-    // Adiciona sempre as mensagens de entrega e frete
+    const total = cart.reduce((acc, item) => acc + item.preco, 0).toFixed(2).replace('.', ',');
+
     container.insertAdjacentHTML("beforeend", `
-        <div class="mt-4 bg-yellow-100 text-yellow-800 text-sm p-3 rounded-lg border border-yellow-300">
-            <i class="fas fa-truck mr-1"></i>
-            Entregas em <strong>Araraquara</strong> são realizadas somente aos <strong>sábados e domingos</strong>.
-        </div>
-        <div class="mt-2 bg-green-100 text-green-800 text-sm p-3 rounded-lg border border-green-300">
-            <i class="fas fa-check-circle mr-1"></i>
-            <strong>Entrega grátis</strong> para todos os pedidos!
+        <div class="mt-4 text-right font-semibold text-lg text-gray-700">
+            Total: <span class="text-purple-600">R$ ${total}</span>
         </div>
     `);
 }
@@ -156,8 +149,8 @@ document.getElementById("checkoutForm").addEventListener("submit", function (e) 
         return;
     }
 
-    const total = cart.reduce((acc, item) => acc + item.preco, 0).toFixed(2);
-    const lista = cart.map(item => `• ${item.nome} - R$ ${item.preco.toFixed(2)}`).join(`\n`);
+    const total = cart.reduce((acc, item) => acc + item.preco, 0).toFixed(2).replace('.', ',');
+    const lista = cart.map(item => `• ${item.nome} - R$ ${item.preco.toFixed(2).replace('.', ',')}`).join(`\n`);
 
     const pedido =
         `🧁 Itens do Pedido:\n${lista}\n\n` +
@@ -211,6 +204,26 @@ telefoneInput.addEventListener("input", function (e) {
     if (input.length >= 8) formatted += "-" + input.substring(7);
 
     e.target.value = formatted;
+});
+
+// *** INSERINDO MENSAGENS DE ENTREGA DEPOIS DO FORMULÁRIO ***
+
+window.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("checkoutForm");
+    if (form) {
+        const entregaContainer = document.createElement("div");
+        entregaContainer.innerHTML = `
+            <div class="mt-6 bg-yellow-100 text-yellow-800 text-sm p-3 rounded-lg border border-yellow-300 flex items-center gap-2">
+                <i class="fas fa-truck"></i>
+                <span>Entregas em <strong>Araraquara</strong> são realizadas somente aos <strong>sábados e domingos</strong>.</span>
+            </div>
+            <div class="mt-2 bg-green-100 text-green-800 text-sm p-3 rounded-lg border border-green-300 flex items-center gap-2">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Entrega grátis</strong> para todos os pedidos!</span>
+            </div>
+        `;
+        form.insertAdjacentElement("afterend", entregaContainer);
+    }
 });
 
 renderProdutos();
