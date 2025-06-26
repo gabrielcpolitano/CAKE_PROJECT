@@ -66,7 +66,21 @@ function addToCart(index) {
     document.getElementById("cartCount").innerText = cart.length;
     document.getElementById("cartCount").classList.add("animate-bounce");
     setTimeout(() => document.getElementById("cartCount").classList.remove("animate-bounce"), 500);
+
+    // Mensagem temporária com fade
+    const msg = document.getElementById("addToCartMessage");
+    msg.textContent = `${produto.nome} adicionado ao carrinho!`; // mensagem com nome do produto
+    msg.classList.remove("opacity-0"); // mostra com opacidade
+    msg.classList.add("opacity-100");  // fade-in
+
+    // Aguarda 2 segundos, depois inicia o fade-out
+    setTimeout(() => {
+        msg.classList.remove("opacity-100"); // inicia o fade-out
+        msg.classList.add("opacity-0");
+    }, 2000); // tempo visível
 }
+
+
 
 function removeFromCart(index) {
     cart.splice(index, 1);
